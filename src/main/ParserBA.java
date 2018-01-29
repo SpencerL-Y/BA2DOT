@@ -16,26 +16,20 @@ public class ParserBA {
 		
 	}
 	
-	public MidComponent convertToMid() {
-		MidComponent mid = new MidComponent();
-		
-		
-		return mid;
-	}
 	
 	public MidComponent convertToMid(String filename) throws IOException {
 		MidComponent mid = new MidComponent();
 		this.reader = new FileReader(filename);
-		this.br = new BufferedReader(reader);
+		this.br = new BufferedReader(this.reader);
 		Boolean accFlag = false;
 		while((this.currentLine = br.readLine()) != null) {
-			if(this.currentLine.indexOf(",") != 1) {
+			if(this.currentLine.indexOf(",") != -1) {
 				String[] letter = new String[1];
 				Integer[] pair = new Integer[2];
 				pair = this.transParser(this.currentLine, letter);
 				mid.addTransition(pair[0], pair[1], letter[0]);
-			} else if(this.currentLine.indexOf("\\[") != -1 && 
-					  this.currentLine.indexOf("\\]") != -1) {
+			} else if(this.currentLine.indexOf("[") != -1 && 
+					  this.currentLine.indexOf("]") != -1) {
 				if(accFlag) {
 					Integer accNum = this.accParser(this.currentLine);
 					mid.addAcc(accNum);
@@ -66,6 +60,7 @@ public class ParserBA {
 		String trans[] = input.split(",");
 		trans[0] = trans[0].trim();
 		letter[0] = trans[0];
+		//System.out.println(trans[0]);
 		String line = trans[1];
 		
 		String[] temp = line.split("->");
@@ -81,18 +76,19 @@ public class ParserBA {
 		Integer result[] = new Integer[2];
 		result[0] = from;
 		result[1] = to;
-		return result;
+		
 		
 		//System.out.println(from);
 		//System.out.println(to);
+		return result;
 	}
 	
 	private Integer accParser(String input) {
 		//System.out.println("This is acc state");
 		input = input.trim();
 		String acc = input.split("\\[")[1].split("\\]")[0];
+		//System.out.println(Integer.parseInt(acc));
 		return Integer.parseInt(acc);
-		//System.out.println(accNum);
 	}
 	
 	
