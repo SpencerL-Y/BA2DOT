@@ -1,8 +1,6 @@
 package test;
 
 import java.util.ArrayList;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class RegExpTest {
 	public static void main(String[] args) {

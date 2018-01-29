@@ -10,7 +10,6 @@ public class MidToDOT {
 		FileWriter fw = new FileWriter(f);
 		String tempLine = "diagraph graph {";
 		fw.write(tempLine);
-		Integer initNum = mid.getInit().getId();
 		tempLine = "size = 5";
 		fw.write(tempLine);
 		tempLine = "node [shape = point] INIT;";
