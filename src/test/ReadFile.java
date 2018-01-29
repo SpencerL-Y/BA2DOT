@@ -7,7 +7,7 @@ import java.io.IOException;
 public class ReadFile {
 	public static void main(String[] leargs) throws IOException {
 		StringBuffer sb = new StringBuffer("");
-		FileReader reader = new FileReader("/home/clexma/Desktop/GUI/BA2DOT/readfiles/test.ba");
+		FileReader reader = new FileReader("./readfiles/test.ba");
 		BufferedReader br = new BufferedReader(reader);
 		
 		String str = null;
