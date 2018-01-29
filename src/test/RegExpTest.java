@@ -1,5 +1,6 @@
 package test;
 
+import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -45,11 +46,14 @@ public class RegExpTest {
 		}
 		
 		
-		Integer a = 0;
 		
-		String[] letter = new String[1];
-		System.out.println(test(a, letter)[0] + test(a, letter)[1]);
-		System.out.println(letter[0]);
+	
+		
+		ArrayList<Integer> a = new ArrayList<Integer>();
+		a.add(1);
+		a.add(2);
+		a.remove(0);
+		System.out.println(a.get(0));
 	}
 	
 	
