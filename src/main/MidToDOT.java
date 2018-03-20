@@ -5,10 +5,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class MidToDOT {
-	public static void midToDOT(MidComponent mid, String path) throws IOException {
+	public static void midToDOT(MidComponent mid, String path, String name) throws IOException {
 		File f = new File(path);
 		FileWriter fw = new FileWriter(f);
-		String tempLine = "digraph result {\n";
+		String tempLine = "digraph " + name +" {\n";
 		fw.write(tempLine);
 		tempLine = "size = \"2\";\n";
 		fw.write(tempLine);
